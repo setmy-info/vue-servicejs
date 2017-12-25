@@ -26,6 +26,4 @@
  */
 "use strict";
 
-module.exports = {
-    
-};
+module.exports = require('./dist/vue-servicejs');
