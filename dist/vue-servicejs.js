@@ -26,28 +26,22 @@
  */
 "use strict";
 
-(function (vueJsDi) {
-
-    vueJsDi.plugin = {
-        install: function (Vue, options) {
-            Vue.mixin({
-                created: function () {
-                    this.vueDataService = jsdi.services.vueDataService;
-                    this.translations = jsdi.services.languageService.translations;
-                    var componentName = this.$options.name,
-                            componentServiceName = componentName + 'Service',
-                            dependencies = this.$options.dependencies,
-                            position, depName;
-                    this[componentServiceName] = jsdi.services[componentServiceName];
-                    if (dependencies) {
-                        for (position = 0; position < dependencies.length; position++) {
-                            depName = dependencies[position];
-                            this[depName] = jsdi.services[depName];
-                        }
+module.exports = {
+    install: function (Vue, options) {
+        Vue.mixin({
+            created: function () {
+                var componentName = this.$options.name,
+                        componentServiceName = componentName + 'Service',
+                        dependencies = this.$options.dependencies,
+                        position, depName;
+                this[componentServiceName] = jsdi.get(componentServiceName);
+                if (dependencies) {
+                    for (position = 0; position < dependencies.length; position++) {
+                        depName = dependencies[position];
+                        this[depName] = jsdi.get(depName);
                     }
                 }
-            });
-        }
-    };
-
-}(typeof exports === 'undefined' ? {} : exports));
+            }
+        });
+    }
+};

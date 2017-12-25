@@ -3,7 +3,7 @@
 # MIT License
 # Copyright (c) 2017 Imre Tabur <imre.tabur@eesti.ee>
 
-RELEASE=0.9.5
+RELEASE=0.9.6
 VERSION_TAG=version-${RELEASE}
 
 npm install && npm run build && npm run unit

@@ -4,7 +4,7 @@ module.exports = function (config) {
         basePath: './',
         files: [
             // main library
-            'src/main/webapp/js/vue-servicejs.min.js',
+            //'src/main/webapp/js/vue-servicejs.min.js',
             //'src/main/webapp/js/vue-servicejs.js',
 
             // tests
