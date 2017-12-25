@@ -1,6 +1,6 @@
 {
   "name": "servicejs",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "VueJS JavaScript ServiceJS dependencies injection plugin.",
   "main": "src/index.js",
   "scripts": {
